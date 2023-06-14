@@ -125,6 +125,15 @@ func (il *IntegerLiteral) expressionNode()      {}
 func (il *IntegerLiteral) TokenLiteral() string { return il.Token.Literal }
 func (il *IntegerLiteral) String() string       { return il.Token.Literal }
 
+type FloatLiteral struct {
+	Token token.Token
+	Value float64
+}
+
+func (fl *FloatLiteral) expressionNode()      {}
+func (fl *FloatLiteral) TokenLiteral() string { return fl.Token.Literal }
+func (fl *FloatLiteral) String() string       { return fl.Token.Literal }
+
 type Boolean struct {
 	Token token.Token
 	Value bool
@@ -221,7 +230,7 @@ type CallExpression struct {
 }
 
 func (ce *CallExpression) expressionNode()      {}
-func (ce *CallExpression) TokenLiteral() string { return ce.Token.Literal }
+func (ce *CallExpression) TokenLiteral() string { return ce.Function.String() }
 func (ce *CallExpression) String() string {
 	var out bytes.Buffer
 	arguments := []string{}
@@ -231,6 +240,6 @@ func (ce *CallExpression) String() string {
 	out.WriteString(ce.TokenLiteral())
 	out.WriteString("(")
 	out.WriteString(strings.Join(arguments, ", "))
-	out.WriteString(") ")
+	out.WriteString(")")
 	return out.String()
 }

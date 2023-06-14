@@ -6,6 +6,7 @@ const (
 	// Identifiers + literals
 	IDENT = "IDENT" // add, foobar, x, y, ...
 	INT   = "INT"   // 1343456
+	FLOAT = "FLOAT" // 13434.56
 	// Operators
 	ASSIGN   = "="
 	PLUS     = "+"

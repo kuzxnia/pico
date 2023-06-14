@@ -1,7 +1,6 @@
 package ast
 
 import (
-	"pico/lexer"
 	"pico/token"
 	"testing"
 )
