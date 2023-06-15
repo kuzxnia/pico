@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"pico/evaluator"
 	"pico/lexer"
 	"pico/parser"
 )
@@ -29,9 +30,11 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		io.WriteString(out, program.String())
-		io.WriteString(out, "\n")
-
+		evalueted := evaluator.Eval(program)
+		if evalueted != nil {
+			io.WriteString(out, evalueted.Inspect())
+			io.WriteString(out, "\n")
+		}
 	}
 }
 
