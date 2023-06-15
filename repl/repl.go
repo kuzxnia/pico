@@ -6,6 +6,7 @@ import (
 	"io"
 	"pico/evaluator"
 	"pico/lexer"
+	"pico/object"
 	"pico/parser"
 )
 
@@ -13,6 +14,7 @@ const PROMPT = ">> "
 
 func Start(in io.Reader, out io.Writer) {
 	scanner := bufio.NewScanner(in)
+	env := object.NewEnvironment()
 	for {
 		fmt.Printf(PROMPT)
 		if scanned := scanner.Scan(); !scanned {
@@ -30,7 +32,7 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		evalueted := evaluator.Eval(program)
+		evalueted := evaluator.Eval(program, env)
 		if evalueted != nil {
 			io.WriteString(out, evalueted.Inspect())
 			io.WriteString(out, "\n")
