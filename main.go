@@ -4,10 +4,19 @@ import (
 	"fmt"
 	"os"
 	"os/user"
+	"pico/executor"
 	"pico/repl"
 )
 
 func main() {
+	args := os.Args[1:]
+
+	if len(args) == 1 {
+		executor.ExecuteFile(args[0], os.Stdout)
+		os.Exit(0)
+	}
+
+	fmt.Printf("%v", os.Args[1:])
 	user, err := user.Current()
 	if err != nil {
 		panic(err)
