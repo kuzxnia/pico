@@ -4,9 +4,10 @@ const (
 	ILLEGAL = "ILLEGAL"
 	EOF     = "EOF"
 	// Identifiers + literals
-	IDENT = "IDENT" // add, foobar, x, y, ...
-	INT   = "INT"   // 1343456
-	FLOAT = "FLOAT" // 13434.56
+	IDENT  = "IDENT" // add, foobar, x, y, ...
+	INT    = "INT"   // 1343456
+	FLOAT  = "FLOAT" // 13434.56
+	STRING = "STRING"
 	// Operators
 	ASSIGN   = "="
 	PLUS     = "+"
@@ -14,11 +15,11 @@ const (
 	BANG     = "!"
 	ASTERISK = "*"
 	SLASH    = "/"
-  // todo add greater od equal
-	LT       = "<"
-	GT       = ">"
-	EQ       = "=="
-	NOT_EQ   = "!="
+	// todo add greater od equal
+	LT     = "<"
+	GT     = ">"
+	EQ     = "=="
+	NOT_EQ = "!="
 	// Delimiters
 	COMMA     = ","
 	SEMICOLON = ";"
