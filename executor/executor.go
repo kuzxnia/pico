@@ -2,14 +2,12 @@ package executor
 
 import (
 	"errors"
-	"fmt"
 	"io"
 	"os"
 	"pico/evaluator"
 	"pico/lexer"
 	"pico/object"
 	"pico/parser"
-	"time"
 )
 
 func ExecuteFile(path string, out io.Writer) {
